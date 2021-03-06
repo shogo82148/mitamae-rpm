@@ -5,7 +5,7 @@ all: x86_64 aarch64
 x86_64: x86_64.build
 
 .PHONY: aarch64
-x86_64: aarch64.build
+aarch64: aarch64.build
 
 %.build: rpmbuild/SPECS/mitamae.spec
 	./scripts/build.sh $*
