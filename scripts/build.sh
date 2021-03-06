@@ -8,6 +8,12 @@ PLATFORM=$1
 IMAGE_NAME=mitamae-package-$PLATFORM
 TARGZ_FILE=mitamae.tar.gz
 
+rm -rf "$PLATFORM.build.bak"
+if [[ -d "$PLATFORM.build" ]];
+then
+    mv "$PLATFORM.build" "$PLATFORM.build.bak"
+fi
+
 docker build \
     --build-arg PLATFORM="$PLATFORM" \
     -t "$IMAGE_NAME" "$ROOT"
