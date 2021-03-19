@@ -12,6 +12,7 @@ aarch64: aarch64.build
 
 .PHONY: upload
 upload:
+	./scripts/upload.pl
 
 .PHONY: clean
 clean:
