@@ -30,6 +30,5 @@ jobs:
           role-to-assume: arn:aws:iam::445285296882:role/rpm-repository-users-MitamaeRole-1OPFWBU8880WC
           role-session-tagging: true
       - name: upload
-        if: github.event_name == 'release'
         run: |
           make upload
