@@ -9,7 +9,7 @@ RUN rpmdev-setuptree
 ADD ./rpmbuild/ /rpmbuild/
 RUN chown -R root:root /rpmbuild
 RUN cd /rpmbuild/SOURCES/ && \
-    curl -sSL -O "https://github.com/itamae-kitchen/mitamae/releases/download/v1.12.3/mitamae-$PLATFORM-linux.tar.gz"
+    curl -sSL -O "https://github.com/itamae-kitchen/mitamae/releases/download/v1.12.7/mitamae-$PLATFORM-linux.tar.gz"
 RUN rpmbuild -ba --target "$PLATFORM" /rpmbuild/SPECS/mitamae.spec
 RUN tar -czf /tmp/mitamae.tar.gz -C /rpmbuild RPMS SRPMS
 CMD ["/bin/true"]
