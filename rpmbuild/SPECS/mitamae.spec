@@ -34,7 +34,7 @@ rm -rf %{buildroot}
 %{_bindir}/mitamae
 
 %changelog
-* Mon Jan 31 2021 Ichinose Shogo <shogo82148@gmail.com>
+* Mon Jan 31 2022 Ichinose Shogo <shogo82148@gmail.com>
 - bump v1.12.9
 
 * Fri Dec 31 2021 Ichinose Shogo <shogo82148@gmail.com>
