@@ -1,7 +1,7 @@
 Summary: mitamae is a fast, simple, and single-binary configuration management tool with a DSL like Chef
 Name: mitamae
 Version: 1.12.9
-Release: 1
+Release: 2
 URL: https://github.com/itamae-kitchen/mitamae
 Source0: https://github.com/itamae-kitchen/mitamae/releases/download/v%{version}/mitamae-%{_build_arch}-linux.tar.gz
 License: MIT
@@ -34,6 +34,9 @@ rm -rf %{buildroot}
 %{_bindir}/mitamae
 
 %changelog
+* Mon Jan 31 2022 Ichinose Shogo <shogo82148@gmail.com>
+- add AlmaLinux 9 distribution
+
 * Mon Jan 31 2022 Ichinose Shogo <shogo82148@gmail.com>
 - bump v1.12.9
 
