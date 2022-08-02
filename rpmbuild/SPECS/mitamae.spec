@@ -36,6 +36,7 @@ rm -rf %{buildroot}
 %changelog
 * Tue Aug 02 2022 Ichinose Shogo <shogo82148@gmail.com> - 1.13.1-1
 - bump v1.13.1
+- add Rocky Linux 9 distribution
 
 * Wed Jul 06 2022 Ichinose Shogo <shogo82148@gmail.com> - 1.13.0-1
 - bump v1.13.0
