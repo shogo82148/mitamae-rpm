@@ -4,7 +4,7 @@ set -exu
 
 ROOT=$(cd "$(dirname "$0")/../" && pwd)
 PLATFORM=$1
-VERSION=v0.14.0
+VERSION=v1.14.0
 
 IMAGE_NAME=mitamae-package-$PLATFORM
 TARGZ_FILE=mitamae.tar.gz
