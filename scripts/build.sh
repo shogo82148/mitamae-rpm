@@ -4,6 +4,7 @@ set -exu
 
 ROOT=$(cd "$(dirname "$0")/../" && pwd)
 PLATFORM=$1
+VERSION=v0.14.0
 
 IMAGE_NAME=mitamae-package-$PLATFORM
 TARGZ_FILE=mitamae.tar.gz
@@ -16,6 +17,7 @@ fi
 
 docker build \
     --build-arg PLATFORM="$PLATFORM" \
+    --build-arg VERSION="$VERSION" \
     -t "$IMAGE_NAME" "$ROOT"
 
 docker run --name "$IMAGE_NAME-tmp" "$IMAGE_NAME"
