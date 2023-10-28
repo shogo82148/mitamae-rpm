@@ -3,9 +3,16 @@ Name: mitamae
 Version: 1.14.0
 Release: 2
 URL: https://github.com/itamae-kitchen/mitamae
-Source0: https://github.com/itamae-kitchen/mitamae/releases/download/v%{version}/mitamae-%{_build_arch}-linux.tar.gz
+Source0: https://github.com/itamae-kitchen/mitamae/archive/refs/tags/v%{version}.tar.gz
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRequires: ruby
+BuildRequires: patch
+BuildRequires: git
+BuildRequires: wget
+BuildRequires: autoconf
+BuildRequires: automake
+BuildRequires: libtool
 
 %description
 mitamae is a tool to automate configuration management using a Chef-like DSL powered by mruby.
@@ -20,11 +27,14 @@ Single Binary - mitamae can be deployed by just transferring a single binary to 
 %prep
 
 %build
-tar xzvf %{SOURCE0}
+tar xvf %{SOURCE0}
+cd mitamae-%{version}
+bundle install
+bundle exec rake release:build:linux-%{_build_arch}
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
-%{__install} -m 755 -p mitamae-%{_build_arch}-linux %{buildroot}/%{_bindir}/mitamae
+%{__install} -m 755 -p mitamae-build/mitamae-%{_build_arch}-linux %{buildroot}/%{_bindir}/mitamae
 
 %clean
 rm -rf %{buildroot}
