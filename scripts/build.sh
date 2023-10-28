@@ -27,5 +27,5 @@ docker cp "$IMAGE_NAME-tmp:/tmp/$TARGZ_FILE" "$ROOT/tmp"
 docker rm "$IMAGE_NAME-tmp"
 
 mkdir -p "$PLATFORM.build"
-tar -xzf "$ROOT/tmp/$TARGZ_FILE" -C "$PLATFORM.build"
+tar -xzvf "$ROOT/tmp/$TARGZ_FILE" -C "$PLATFORM.build"
 rm -rf "$ROOT/tmp"
