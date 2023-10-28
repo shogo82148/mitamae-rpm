@@ -34,7 +34,7 @@ bundle exec rake release:build:linux-%{_build_arch}
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
-%{__install} -m 755 -p mitamae-build/mitamae-%{_build_arch}-linux %{buildroot}/%{_bindir}/mitamae
+%{__install} -m 755 -p mitamae-%{version}/mitamae-build/mitamae-%{_build_arch}-linux %{buildroot}/%{_bindir}/mitamae
 
 %clean
 rm -rf %{buildroot}
