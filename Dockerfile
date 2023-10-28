@@ -12,17 +12,15 @@ RUN cd /tmp \
     && mv "zig-linux-$(uname -m)-$ZIG_VERSION" /usr/local/zig
 ENV PATH /usr/local/zig:$PATH
 
-# ARG VERSION
-# ARG PLATFORM
-
-ENV MITAMAE_VERSION 1.14.0
+ARG VERSION
+ARG PLATFORM
 
 WORKDIR /root
 RUN rpmdev-setuptree
 COPY ./rpmbuild/ rpmbuild/
 RUN cd rpmbuild/SOURCES/ \
-    && curl -sSL -O "https://github.com/itamae-kitchen/mitamae/archive/refs/tags/v${MITAMAE_VERSION}.tar.gz"
+    && curl -sSL -O "https://github.com/itamae-kitchen/mitamae/archive/refs/tags/v${VERSION}.tar.gz"
 RUN rpmbuild -ba --target $(uname -m) rpmbuild/SPECS/mitamae.spec
 
-# RUN tar -czf /tmp/mitamae.tar.gz -C /rpmbuild RPMS SRPMS
-# CMD ["/bin/true"]
+RUN tar -czf /tmp/mitamae.tar.gz -C rpmbuild RPMS SRPMS
+CMD ["/bin/true"]
