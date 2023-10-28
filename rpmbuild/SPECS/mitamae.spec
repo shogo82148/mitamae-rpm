@@ -1,7 +1,7 @@
 Summary: mitamae is a fast, simple, and single-binary configuration management tool with a DSL like Chef
 Name: mitamae
 Version: 1.14.0
-Release: 3
+Release: 4
 URL: https://github.com/itamae-kitchen/mitamae
 Source0: https://github.com/itamae-kitchen/mitamae/archive/refs/tags/v%{version}.tar.gz
 Patch0: pull-126-bump-specinfra-v2.87.0.patch
@@ -46,6 +46,9 @@ rm -rf %{buildroot}
 %{_bindir}/mitamae
 
 %changelog
+* Sat Oct 28 2023 ICHINOSE Shogo <shogo82148@gmail.com> - 1.14.0-4
+- fix aaarch64 build not uploading
+
 * Sat Oct 28 2023 ICHINOSE Shogo <shogo82148@gmail.com> - 1.14.0-3
 - improve Amazon Linux 2023 detection
 
