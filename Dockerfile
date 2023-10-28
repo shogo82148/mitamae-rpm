@@ -20,7 +20,7 @@ RUN rpmdev-setuptree
 COPY ./rpmbuild/ rpmbuild/
 RUN cd rpmbuild/SOURCES/ \
     && curl -sSL -O "https://github.com/itamae-kitchen/mitamae/archive/refs/tags/v${VERSION}.tar.gz"
-RUN rpmbuild -ba --target $(uname -m) rpmbuild/SPECS/mitamae.spec
+RUN rpmbuild -ba --target "${PLATFORM}" rpmbuild/SPECS/mitamae.spec
 
 RUN tar -czvf /tmp/mitamae.tar.gz -C rpmbuild RPMS SRPMS
 CMD ["/bin/true"]
