@@ -1,11 +1,19 @@
 Summary: mitamae is a fast, simple, and single-binary configuration management tool with a DSL like Chef
 Name: mitamae
 Version: 1.14.0
-Release: 2
+Release: 3
 URL: https://github.com/itamae-kitchen/mitamae
-Source0: https://github.com/itamae-kitchen/mitamae/releases/download/v%{version}/mitamae-%{_build_arch}-linux.tar.gz
+Source0: https://github.com/itamae-kitchen/mitamae/archive/refs/tags/v%{version}.tar.gz
+Patch0: pull-126-bump-specinfra-v2.87.0.patch
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRequires: autoconf
+BuildRequires: automake
+BuildRequires: git
+BuildRequires: libtool
+BuildRequires: patch
+BuildRequires: ruby
+BuildRequires: wget
 
 %description
 mitamae is a tool to automate configuration management using a Chef-like DSL powered by mruby.
@@ -20,11 +28,15 @@ Single Binary - mitamae can be deployed by just transferring a single binary to 
 %prep
 
 %build
-tar xzvf %{SOURCE0}
+tar xvf %{SOURCE0}
+cd mitamae-%{version}
+patch -p1 < %{PATCH0}
+bundle install
+bundle exec rake release:build:linux-%{_build_arch}
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
-%{__install} -m 755 -p mitamae-%{_build_arch}-linux %{buildroot}/%{_bindir}/mitamae
+%{__install} -m 755 -p mitamae-%{version}/mitamae-build/mitamae-%{_build_arch}-linux %{buildroot}/%{_bindir}/mitamae
 
 %clean
 rm -rf %{buildroot}
@@ -34,6 +46,9 @@ rm -rf %{buildroot}
 %{_bindir}/mitamae
 
 %changelog
+* Sat Oct 28 2023 ICHINOSE Shogo <shogo82148@gmail.com> - 1.14.0-3
+- improve Amazon Linux 2023 detection
+
 * Thu Oct 26 2023 ICHINOSE Shogo <shogo82148@gmail.com> - 1.14.0-2
 - add Amazon Linux 2023 distribution
 
