@@ -1,8 +1,8 @@
 FROM centos:7
-RUN dnf update -y
-RUN dnf install -y autoconf automake libtool
-RUN dnf install -y wget git patch xz ruby
-RUN dnf install -y rpm-build redhat-rpm-config rpmdevtools
+RUN yum update -y
+RUN yum install -y autoconf automake libtool
+RUN yum install -y wget git patch xz ruby
+RUN yum install -y rpm-build redhat-rpm-config rpmdevtools
 
 # Install Zig
 ENV ZIG_VERSION 0.9.1
