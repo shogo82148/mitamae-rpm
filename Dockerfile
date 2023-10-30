@@ -18,6 +18,14 @@ ARG PLATFORM
 WORKDIR /root
 RUN rpmdev-setuptree
 COPY ./rpmbuild/ rpmbuild/
+
+# use gzip instead of ztsd.
+# some old distro does not support zstd.
+# ref. https://www.reddit.com/r/openSUSE/comments/qhrzua/rpmbuild_takes_ages_different_algorithm/
+# ref. https://github.com/shogo82148/mitamae-rpm/issues/25
+RUN echo "%_source_payload w9.gzdio" >> ~/.rpmmacros
+RUN echo "%_binary_payload w9.gzdio" >> ~/.rpmmacros
+
 RUN cd rpmbuild/SOURCES/ \
     && curl -sSL -O "https://github.com/itamae-kitchen/mitamae/archive/refs/tags/v${VERSION}.tar.gz"
 RUN rpmbuild -ba --target "${PLATFORM}" rpmbuild/SPECS/mitamae.spec
