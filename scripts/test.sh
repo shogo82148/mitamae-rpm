@@ -19,4 +19,4 @@ docker run \
     -v "$ROOT/$ARCH.build:/build" \
     --platform "$PLATFORM" \
     "$IMAGE" \
-    sh -c "yum update -y && yum install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae --help"
+    sh -c "yum update -y && yum install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
