@@ -1,4 +1,4 @@
-FROM rockylinux:9
+FROM centos:7
 RUN dnf update -y
 RUN dnf install -y autoconf automake libtool
 RUN dnf install -y wget git patch xz ruby
