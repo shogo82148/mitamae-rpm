@@ -27,6 +27,8 @@ jobs:
         run: |
           make ${{ matrix.platform }}
 
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
       - name: test
         run: |
           make test-${{ matrix.platform }}
