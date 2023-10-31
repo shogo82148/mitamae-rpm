@@ -4,7 +4,6 @@ Version: 1.14.1
 Release: 1
 URL: https://github.com/itamae-kitchen/mitamae
 Source0: https://github.com/itamae-kitchen/mitamae/archive/refs/tags/v%{version}.tar.gz
-Patch0: pull-126-bump-specinfra-v2.87.0.patch
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: autoconf
@@ -30,7 +29,6 @@ Single Binary - mitamae can be deployed by just transferring a single binary to 
 %build
 tar xvf %{SOURCE0}
 cd mitamae-%{version}
-patch -p1 < %{PATCH0}
 bundle install
 bundle exec rake release:build:linux-%{_build_arch}
 
