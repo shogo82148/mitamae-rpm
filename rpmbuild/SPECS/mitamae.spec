@@ -1,10 +1,9 @@
 Summary: mitamae is a fast, simple, and single-binary configuration management tool with a DSL like Chef
 Name: mitamae
-Version: 1.14.0
-Release: 4
+Version: 1.14.1
+Release: 1
 URL: https://github.com/itamae-kitchen/mitamae
 Source0: https://github.com/itamae-kitchen/mitamae/archive/refs/tags/v%{version}.tar.gz
-Patch0: pull-126-bump-specinfra-v2.87.0.patch
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: autoconf
@@ -30,7 +29,6 @@ Single Binary - mitamae can be deployed by just transferring a single binary to 
 %build
 tar xvf %{SOURCE0}
 cd mitamae-%{version}
-patch -p1 < %{PATCH0}
 bundle install
 bundle exec rake release:build:linux-%{_build_arch}
 
@@ -46,6 +44,10 @@ rm -rf %{buildroot}
 %{_bindir}/mitamae
 
 %changelog
+* Sat Oct 28 2023 ICHINOSE Shogo <shogo82148@gmail.com> - 1.14.1-1
+- bump v1.14.1
+- change compression method to gzip instead of zstd
+
 * Sat Oct 28 2023 ICHINOSE Shogo <shogo82148@gmail.com> - 1.14.0-4
 - fix aaarch64 build not uploading
 
