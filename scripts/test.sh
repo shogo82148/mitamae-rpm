@@ -18,32 +18,32 @@ docker run \
     -v "$ROOT/$ARCH.build:/build" \
     --platform "$PLATFORM" \
     amazonlinux:2022 \
-    sh -c "yum update -y && yum install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
+    sh -c "dnf update -y && dnf install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
 
 docker run \
     --rm \
     -v "$ROOT/$ARCH.build:/build" \
     --platform "$PLATFORM" \
     almalinux:9 \
-    sh -c "yum update -y && yum install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
+    sh -c "dnf update -y && dnf install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
 
 docker run \
     --rm \
     -v "$ROOT/$ARCH.build:/build" \
     --platform "$PLATFORM" \
     almalinux:9 \
-    sh -c "yum update -y && yum install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
+    sh -c "dnf update -y && dnf install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
 
 docker run \
     --rm \
     -v "$ROOT/$ARCH.build:/build" \
     --platform "$PLATFORM" \
     rockylinux/rockylinux:8 \
-    sh -c "yum update -y && yum install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
+    sh -c "dnf update -y && dnf install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
 
 docker run \
     --rm \
     -v "$ROOT/$ARCH.build:/build" \
     --platform "$PLATFORM" \
     rockylinux/rockylinux:9 \
-    sh -c "yum update -y && yum install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
+    sh -c "dnf update -y && dnf install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
