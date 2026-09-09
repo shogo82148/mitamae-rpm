@@ -47,6 +47,7 @@ rm -rf %{buildroot}
 %changelog
 * Wed Sep 09 2026 ICHINOSE Shogo <shogo82148@gmail.com> - 2.0.3-1
 - bump v2.0.3
+- change compression method to zstd
 
 * Sat Oct 28 2023 ICHINOSE Shogo <shogo82148@gmail.com> - 1.14.1-1
 - bump v1.14.1
