@@ -52,7 +52,7 @@ jobs:
           make upload
       - name: upload to GitHub Release
         run: |
-          gh release upload "${GITHUB_REF_NAME}" "${{ matrix.platform }}.build/RPMS/${{ matrix.platform }}/*.${{ matrix.platform }}.rpm" --repo "${GITHUB_REPOSITORY}"
+          gh release upload "${GITHUB_REF_NAME}" "${{ matrix.platform }}.build/RPMS/${{ matrix.platform }}/*.${{ matrix.platform }}.rpm" --repo "${GITHUB_REPOSITORY}" --clobber
 
   release:
     needs: build
