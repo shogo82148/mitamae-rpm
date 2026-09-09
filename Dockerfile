@@ -1,4 +1,4 @@
-FROM rockylinux:9
+FROM rockylinux/rockylinux:9
 RUN dnf update -y
 RUN dnf install -y autoconf automake libtool
 RUN dnf install -y wget git patch xz ruby
