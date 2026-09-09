@@ -7,9 +7,9 @@ RUN dnf install -y rpm-build redhat-rpm-config rpmdevtools
 # Install Zig
 ENV ZIG_VERSION=0.16.0
 RUN cd /tmp \
-    && curl -sSL -O "https://ziglang.org/download/$ZIG_VERSION/zig-linux-$(uname -m)-$ZIG_VERSION.tar.xz" \
-    && tar xf "zig-linux-$(uname -m)-$ZIG_VERSION.tar.xz" \
-    && mv "zig-linux-$(uname -m)-$ZIG_VERSION" /usr/local/zig
+    && curl -sSL -O "https://ziglang.org/download/$ZIG_VERSION/zig-$(uname -m)-linux-$ZIG_VERSION.tar.xz" \
+    && tar xf "zig-$(uname -m)-linux-$ZIG_VERSION.tar.xz" \
+    && mv "zig-$(uname -m)-linux-$ZIG_VERSION" /usr/local/zig
 ENV PATH=/usr/local/zig:$PATH
 
 ARG VERSION
