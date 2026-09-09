@@ -5,6 +5,8 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: read
 jobs:
   build:
     runs-on: ${{ case(matrix.platform == 'x86_64', 'ubuntu-24.04', 'ubuntu-24.04-arm') }}

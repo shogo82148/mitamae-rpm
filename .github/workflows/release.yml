@@ -5,11 +5,13 @@ on:
     tags:
       - "v*"
 
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
   prepare:
     runs-on: ubuntu-slim
-    permissions:
-      contents: write
     steps:
       - name: Create GitHub Draft Release
         env:
