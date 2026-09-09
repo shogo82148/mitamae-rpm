@@ -10,6 +10,7 @@ BuildRequires: autoconf
 BuildRequires: automake
 BuildRequires: git
 BuildRequires: libtool
+BuildRequires: llvm
 BuildRequires: patch
 BuildRequires: ruby
 BuildRequires: wget
