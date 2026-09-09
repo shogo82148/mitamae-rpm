@@ -2,6 +2,8 @@ FROM rockylinux:9
 RUN dnf update -y
 RUN dnf install -y autoconf automake libtool
 RUN dnf install -y wget git patch xz ruby
+# mitamae v2.0.0+ strips the release binary with llvm-strip (see the Rakefile).
+RUN dnf install -y llvm
 RUN dnf install -y rpm-build redhat-rpm-config rpmdevtools
 
 # Install Zig
