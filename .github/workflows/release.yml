@@ -19,6 +19,7 @@ jobs:
         run: gh release create "${GITHUB_REF_NAME}" --repo "${GITHUB_REPOSITORY}" --verify-tag --draft --generate-notes
 
   build:
+    needs: prepare
     runs-on: ${{ case(matrix.platform == 'x86_64', 'ubuntu-24.04', 'ubuntu-24.04-arm') }}
     strategy:
       fail-fast: false
