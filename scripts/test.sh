@@ -3,7 +3,6 @@
 set -exu
 
 ARCH=$1
-IMAGE=amazonlinux:2
 ROOT=$(cd "$(dirname "$0")/../" && pwd)
 
 PLATFORM=unknown
@@ -18,5 +17,33 @@ docker run \
     --rm \
     -v "$ROOT/$ARCH.build:/build" \
     --platform "$PLATFORM" \
-    "$IMAGE" \
-    sh -c "yum update -y && yum install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
+    amazonlinux:2022 \
+    sh -c "dnf update -y && dnf install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
+
+docker run \
+    --rm \
+    -v "$ROOT/$ARCH.build:/build" \
+    --platform "$PLATFORM" \
+    almalinux:9 \
+    sh -c "dnf update -y && dnf install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
+
+docker run \
+    --rm \
+    -v "$ROOT/$ARCH.build:/build" \
+    --platform "$PLATFORM" \
+    almalinux:9 \
+    sh -c "dnf update -y && dnf install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
+
+docker run \
+    --rm \
+    -v "$ROOT/$ARCH.build:/build" \
+    --platform "$PLATFORM" \
+    rockylinux/rockylinux:8 \
+    sh -c "dnf update -y && dnf install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
+
+docker run \
+    --rm \
+    -v "$ROOT/$ARCH.build:/build" \
+    --platform "$PLATFORM" \
+    rockylinux/rockylinux:9 \
+    sh -c "dnf update -y && dnf install -y \"/build/RPMS/\$(uname -m)\"/*.rpm && mitamae help"
