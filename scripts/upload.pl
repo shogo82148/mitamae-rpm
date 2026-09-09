@@ -8,7 +8,7 @@ use File::Basename;
 
 our @options = ('--dryrun');
 
-if (($ENV{GITHUB_EVENT_NAME} || '') eq 'release') {
+if (($ENV{GITHUB_REF_TYPE} || '') eq 'tag') {
     @options = ();
 }
 
