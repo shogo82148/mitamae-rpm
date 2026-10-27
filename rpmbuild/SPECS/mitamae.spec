@@ -1,6 +1,6 @@
 Summary: mitamae is a fast, simple, and single-binary configuration management tool with a DSL like Chef
 Name: mitamae
-Version: 2.0.5
+Version: 2.0.6
 Release: 1
 URL: https://github.com/itamae-kitchen/mitamae
 Source0: https://github.com/itamae-kitchen/mitamae/archive/refs/tags/v%{version}.tar.gz
@@ -49,6 +49,9 @@ mkdir -p %{buildroot}/%{_bindir}
 %{_bindir}/mitamae
 
 %changelog
+* Mon Oct 27 2026 ICHINOSE Shogo <shogo82148@gmail.com> - 2.0.6-1
+- bump v2.0.6
+
 * Mon Oct 27 2026 ICHINOSE Shogo <shogo82148@gmail.com> - 2.0.5-1
 - bump v2.0.5
 
