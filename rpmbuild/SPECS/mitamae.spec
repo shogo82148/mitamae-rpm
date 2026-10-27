@@ -13,6 +13,7 @@ BuildRequires: libtool
 BuildRequires: llvm
 BuildRequires: patch
 BuildRequires: ruby
+BuildRequires: rubygem-rake
 BuildRequires: wget
 
 %description
@@ -30,8 +31,11 @@ Single Binary - mitamae can be deployed by just transferring a single binary to 
 %build
 tar xvf %{SOURCE0}
 cd mitamae-%{version}
-bundle install
-bundle exec rake release:build:linux-%{_build_arch}
+# Build the release binary directly with rake. We intentionally avoid
+# `bundle install` here: mitamae's Gemfile pulls in serverspec (test only),
+# whose transitive `openssl` gem requires compiling a native extension and
+# thus ruby-devel. The release build only needs rake + mruby + zig.
+rake release:build:linux-%{_build_arch}
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
